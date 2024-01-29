@@ -1,12 +1,13 @@
 import React from "react";
-import MySideBar from "../mySideBar ";
+import SideBar from "../SideBar ";
 import Bar from "../Charts/BarChart";
-import Box from "@mui/material/Box";
+import Header from "../Header";
 
 const ChartPage = () => {
   return (
     <>
-      <MySideBar />
+      <Header />
+      <SideBar />
       <Bar />
     </>
   );

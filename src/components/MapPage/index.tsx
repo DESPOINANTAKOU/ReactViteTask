@@ -1,12 +1,11 @@
 import React from "react";
-import MyAppBar from "../HeaderComponent ";
-import MyHeader from "../HeaderComponent ";
-import Box from "@mui/material/Box";
+import Header from "../Header"
+
 
 const MapPage = () => {
   return (
     <>
-      <MyHeader></MyHeader>
+      <Header></Header>
     </>
   );
 };
