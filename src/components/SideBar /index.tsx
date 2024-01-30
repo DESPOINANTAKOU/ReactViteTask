@@ -6,7 +6,7 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 
 const drawerWidth = 240;
 
@@ -31,22 +31,30 @@ export default function SideBar() {
           anchor="left"
         >
           <List>
-            {["Chart Page", "Map Page", "User Comments Page"].map((text, index) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <CheckCircleOutlineIcon sx={{ marginRight: "1rem" }} />
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
+            {["Chart Page", "Map Page", "User Comments Page"].map(
+              (text, index) => (
+                <ListItem key={text} disablePadding>
+                  <ListItemButton>
+                    <ArrowCircleRightIcon
+                      sx={{ marginRight: "1rem" }}
+                      color="primary"
+                    />
+                    <ListItemText primary={text} sx={{ color: "#1976d2" }} />
+                  </ListItemButton>
+                </ListItem>
+              )
+            )}
           </List>
-          <List sx={{ marginTop: "calc(100vh - 16rem)" }}>
+          <List sx={{ marginTop: "calc(100vh - 19rem)" }}>
             {["Log Out"].map((text, index) => (
               <ListItem key={text} disablePadding>
                 <ListItemButton>
                   {" "}
-                  <CheckCircleOutlineIcon sx={{ marginRight: "1rem" }} />
-                  <ListItemText primary={text} />
+                  <ArrowCircleRightIcon
+                    sx={{ marginRight: "1rem" }}
+                    color="primary"
+                  />
+                  <ListItemText primary={text} sx={{ color: "#1976d2" }} />
                 </ListItemButton>
               </ListItem>
             ))}
