@@ -24,14 +24,14 @@ export default function SideBar() {
               width: drawerWidth,
               boxSizing: "border-box",
               marginTop: "4.5rem",
-              backgroundColor: "#f2f2f0",
+              backgroundColor: "#F0F0F0",
             },
           }}
           variant="permanent"
           anchor="left"
         >
           <List>
-            {["Project Selection Page", "NLP"].map((text, index) => (
+            {["Chart Page", "Map Page", "User Comments Page"].map((text, index) => (
               <ListItem key={text} disablePadding>
                 <ListItemButton>
                   <CheckCircleOutlineIcon sx={{ marginRight: "1rem" }} />

@@ -4,7 +4,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { styles } from "./styles";
-import logo from "../../Assets/images/logo.png"
+import logo from "../../Assets/images/logo.png";
 
 // const pages = ["Charts Page", "Map Page", "User Comments Page"];
 // const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -14,8 +14,7 @@ function ResponsiveAppBar({ sx = {} }) {
     <AppBar
       position="static"
       sx={{
-        backgroundColor: "white",
-        height: "4.2rem",
+        backgroundColor: "#F0F0F0",
         width: "100vw",
         padding: 0,
         ...sx,
@@ -40,7 +39,7 @@ function ResponsiveAppBar({ sx = {} }) {
               textDecoration: "none",
             }}
           >
-           CORE NLP APP
+            EVALUATION TASK
           </Typography>
         </Toolbar>
       </Container>

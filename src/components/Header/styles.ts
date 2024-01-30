@@ -3,7 +3,7 @@ export const styles = {
       display: "flex",
       alignItems: "center",
       justifyContent: "space-between",
-      backgroundColor: "white",
+      backgroundColor: "#F0F0F0",
     },
     container: {},
   };

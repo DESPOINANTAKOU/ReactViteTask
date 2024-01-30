@@ -7,8 +7,7 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import { Box } from "@mui/material";
-import axios from 'axios';
-
+import axios from "axios";
 
 interface ChartData {
   labels: string[];
@@ -82,7 +81,7 @@ const BarChart = ({ sx = {} }: { sx?: React.CSSProperties }) => {
         const newData = response.data;
 
         setApiData({
-          labels: newData.map((item: any) => item.title), // Use title as labels
+          labels: newData.map((item: any) => item.userId), // Use title as labels
           datasets: [
             {
               label: "Data from API",
@@ -108,5 +107,5 @@ const BarChart = ({ sx = {} }: { sx?: React.CSSProperties }) => {
     </Box>
   );
 };
- 
+
 export default BarChart;
