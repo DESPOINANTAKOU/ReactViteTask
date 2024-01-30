@@ -23,7 +23,7 @@ export default function SideBar() {
             "& .MuiDrawer-paper": {
               width: drawerWidth,
               boxSizing: "border-box",
-              marginTop: "4.5rem",
+              marginTop: "4.2rem",
               backgroundColor: "#F0F0F0",
             },
           }}
