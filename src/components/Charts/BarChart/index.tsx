@@ -1,13 +1,25 @@
 import React, { RefObject, useEffect, useRef, useState } from "react";
+import { Bar } from "react-chartjs-2";
+import { Box } from "@mui/material";
+import axios from "axios";
 import {
   Chart as ChartJS,
   BarElement,
   CategoryScale,
   LinearScale,
 } from "chart.js";
-import { Bar } from "react-chartjs-2";
-import { Box } from "@mui/material";
-import axios from "axios";
+
+// Interfaces
+interface ChartData {
+  labels: string[];
+  datasets: {
+    label: string;
+    data: number[];
+    backgroundColor: string;
+    borderColor: string;
+    borderWidth: number;
+  }[];
+}
 
 interface ChartData {
   labels: string[];
@@ -20,7 +32,32 @@ interface ChartData {
   }[];
 }
 
-const BarChart = ({ sx = {} }: { sx?: React.CSSProperties }) => {
+interface ChartOptions {
+  maintainAspectRatio: boolean;
+  responsive: boolean;
+  scales: {
+    y: {
+      beginAtZero: boolean;
+    };
+  };
+  layout: {
+    margin: {
+      left: number;
+      right: number;
+      top: number;
+      bottom: number;
+    };
+    autoPadding: boolean;
+    padding: {
+      top: number;
+      bottom: number;
+      left: number;
+      right: number;
+    };
+  };
+}
+
+const BarChart: React.FC<{ sx?: React.CSSProperties }> = ({ sx = {} }) => {
   const chartRef: RefObject<any> = useRef(null);
   const [apiData, setApiData] = useState<ChartData>({
     labels: [],
@@ -35,9 +72,10 @@ const BarChart = ({ sx = {} }: { sx?: React.CSSProperties }) => {
     ],
   });
 
+  // Register ChartJS components
   ChartJS.register(BarElement, CategoryScale, LinearScale);
 
-  const options = {
+  const options: ChartOptions = {
     maintainAspectRatio: false,
     responsive: true,
     scales: {
@@ -59,7 +97,7 @@ const BarChart = ({ sx = {} }: { sx?: React.CSSProperties }) => {
         left: 0,
         right: 0,
       },
-    } as CustomLayoutOptions,
+    },
   };
 
   useEffect(() => {
@@ -81,11 +119,11 @@ const BarChart = ({ sx = {} }: { sx?: React.CSSProperties }) => {
         const newData = response.data;
 
         setApiData({
-          labels: newData.map((item: any) => item.userId), // Use title as labels
+          labels: newData.map((item: any) => item.userId),
           datasets: [
             {
               label: "Data from API",
-              data: newData.map((item: any) => item.id), // Use id as data
+              data: newData.map((item: any) => item.id),
               backgroundColor: "rgba(75, 192, 192, 0.2)",
               borderColor: "rgba(75, 192, 192, 1)",
               borderWidth: 1,
@@ -102,7 +140,7 @@ const BarChart = ({ sx = {} }: { sx?: React.CSSProperties }) => {
   console.log(apiData);
 
   return (
-    <Box sx={{ width: "80%", margin: "auto" }}>
+    <Box sx={{ width: "80%", margin: "auto", ...sx }}>
       <Bar ref={chartRef} data={apiData} options={options} />
     </Box>
   );
